@@ -6,9 +6,13 @@ export const Todo = ({todo, onRemove}) => {
         onRemove(todo.id)
     }
 
+    const hedlerOnChange = (e) => {
+        e.target.parentNode.classList.toggle('done')
+    }
+
     return (
         <li>
-            <input type='checkbox' />
+            <input type='checkbox' onChange={hedlerOnChange}/>
             {todo.name}
             <button onClick={hendlerOnSubmit}>Delete</button>
         </li>

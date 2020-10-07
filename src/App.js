@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import { AddTodo } from './components/AddTodo';
 import { Todo } from './components/Todo';
 
 function App() {
 
-  const [todos, setTodos] = useState([])
+  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || [])
+
+  useEffect(() => {
+    localStorage.setItem('todos', JSON.stringify(todos))
+  }, [todos])
 
   const addTodo = (text) => {
     setTodos(prev => [
@@ -14,8 +18,8 @@ function App() {
         id: Date.now(),
         name: text
       }
-    ]
-  )}
+    ])
+  }
 
   const removeTodo = id => {
     setTodos(prev => {
