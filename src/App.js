@@ -1,40 +1,16 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
+import React from 'react';
 import { AddTodo } from './components/AddTodo';
-import { Todo } from './components/Todo';
+import { TodoList } from './components/TodoList';
+import { TodoState } from './todo/TodoState';
 
 function App() {
 
-  const [todos, setTodos] = useState(JSON.parse(localStorage.getItem('todos')) || [])
-
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos))
-  }, [todos])
-
-  const addTodo = (text) => {
-    setTodos(prev => [
-      ...prev,
-      {
-        id: Date.now(),
-        name: text
-      }
-    ])
-  }
-
-  const removeTodo = id => {
-    setTodos(prev => {
-      return prev.filter(todo => todo.id !== id)
-    })
-  }
-
   return (
-    <div className="App">
-      <h1>Todos</h1>
-      <AddTodo onAddTodo={addTodo} />
-      <ul>
-        {todos.map(todo => <Todo onRemove={removeTodo} todo={todo} key={todo.id} />)}
-      </ul>
-    </div>
+    <TodoState>
+        <h1 className='logo'>Todos</h1>
+        <AddTodo />
+        <TodoList />
+    </TodoState>
   );
 }
 
