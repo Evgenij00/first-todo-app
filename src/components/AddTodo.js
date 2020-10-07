@@ -5,7 +5,7 @@ export const AddTodo = ({onAddTodo}) => {
     const [value, setValue] = useState('')
 
     const handlerKeyDown = (e) => {
-        if (e.keyCode == 13) {
+        if (e.keyCode === 13) {
             onAddTodo(value)
             setValue('')
         }
