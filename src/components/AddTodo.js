@@ -1,15 +1,24 @@
 import React, { useContext, useState } from 'react'
+import { AlertContext } from '../alert/alertContext'
 import { TodoContext } from '../todo/todoContext'
 
 export const AddTodo = () => {
 
     const {addTodo} = useContext(TodoContext)
+    const {showAlert} = useContext(AlertContext)
 
     const [value, setValue] = useState('')
 
     const handlerKeyDown = (e) => {
         if (e.keyCode === 13) {
-            addTodo(value)
+
+            if (value.trim()) {
+                addTodo(value)
+                showAlert('success', 'Заметка успешно добавлена :)')
+            } else {
+                showAlert('warrning', 'Введите название заметки!')
+            }
+
             setValue('')
         }
     }

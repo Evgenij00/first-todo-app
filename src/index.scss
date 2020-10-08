@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  // box-sizing: border-box;
 }
 
 code {
@@ -45,12 +46,41 @@ ul {
 
 .todo {
   display: flex;
-  justify-content: space-between;
+  // justify-content: space-between;
   padding: 10px;
   border: 2px solid #eee;
   border-radius: 10px;
   margin-bottom: 10px;
   align-items: center;
+
+  &_name { 
+    display: flex;
+    flex-grow: 1;
+    flex-wrap: wrap;
+    overflow-x:hidden;
+  }
+}
+
+.alert {
+  width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+
+.alert-warrning {
+  // background-color: red;
+  border: 2px solid red;
+  color: red;
+}
+
+.alert-success {
+  // background-color: green;
+  border: 2px solid green;
+  color: green;
 }
 
 .done {
