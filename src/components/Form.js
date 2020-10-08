@@ -1,8 +1,8 @@
 import React, { useContext, useState } from 'react'
-import { AlertContext } from '../alert/alertContext'
-import { TodoContext } from '../todo/todoContext'
+import { AlertContext } from '../contexts/alert/alertContext'
+import { TodoContext } from '../contexts/todo/todoContext'
 
-export const AddTodo = () => {
+export const Form = () => {
 
     const {addTodo} = useContext(TodoContext)
     const {showAlert} = useContext(AlertContext)
@@ -14,9 +14,9 @@ export const AddTodo = () => {
 
             if (value.trim()) {
                 addTodo(value)
-                showAlert('success', 'Заметка успешно добавлена :)')
+                showAlert('Заметка успешно добавлена :)', 'success')
             } else {
-                showAlert('warrning', 'Введите название заметки!')
+                showAlert('Введите название заметки!')
             }
 
             setValue('')
@@ -32,7 +32,7 @@ export const AddTodo = () => {
             <input
                 className='form_input' 
                 type='text' 
-                placeholder='Введите...' 
+                placeholder='Введите название заметки...' 
                 value={value} 
                 onKeyDown={handlerKeyDown} 
                 onChange={handlerOnChange}

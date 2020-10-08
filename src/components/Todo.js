@@ -13,7 +13,6 @@ export const Todo = ({todo, onRemove}) => {
     return (
         <li className='todo'>
             <input className='todo_checkbox' type='checkbox' onChange={hedlerOnChange}/>
-            &nbsp;
             <span className='todo_name'>{todo.name}</span>
             <button onClick={hendlerOnSubmit}>Delete</button>
         </li>

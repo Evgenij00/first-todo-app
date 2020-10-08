@@ -1,18 +1,18 @@
 import React from 'react';
-import { AlertState } from './alert/AlertState';
-import { AddTodo } from './components/AddTodo';
+import { AlertState } from './contexts/alert/AlertState';
 import { Alert } from './components/Alert';
 import { TodoList } from './components/TodoList';
-import { TodoState } from './todo/TodoState';
+import { TodoState } from './contexts/todo/TodoState'
+import { Form } from './components/Form';
 
 function App() {
 
   return (
     <AlertState>
       <TodoState>
-        <h1 className='logo'>Todos</h1>
+        <h1 className='logo'>Заметки</h1>
         <Alert />
-        <AddTodo />
+        <Form />
         <TodoList />
       </TodoState>
     </AlertState>

@@ -1,11 +1,11 @@
 import React, { useContext } from 'react'
-import { AlertContext } from '../alert/alertContext'
+import { AlertContext } from '../contexts/alert/alertContext'
 
 export const Alert = () => {
 
     const {hideAlert, alert} = useContext(AlertContext)
 
-    if (alert.show) {
+    if (alert.visible) {
         return (
             <div className={`alert alert-${alert.type}`}>
                 <span>{alert.text}</span>
