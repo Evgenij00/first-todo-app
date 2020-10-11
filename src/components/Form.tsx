@@ -2,29 +2,29 @@ import React, { useContext, useState } from 'react'
 import { AlertContext } from '../contexts/alert/alertContext'
 import { TodoContext } from '../contexts/todo/todoContext'
 
-export const Form = () => {
+export const Form: React.FC = () => {
 
     const {addTodo} = useContext(TodoContext)
     const {showAlert} = useContext(AlertContext)
 
-    const [value, setValue] = useState('')
+    const [value, setValue] = useState<string>('')
 
-    const handlerKeyDown = (e) => {
-        if (e.keyCode === 13) {
+    const handlerKeyDown = (event: React.KeyboardEvent<HTMLInputElement>) => {
+        if (event.keyCode === 13) {
 
             if (value.trim()) {
-                addTodo(value)
-                showAlert('Заметка успешно добавлена :)', 'success')
+                addTodo!(value)
+                showAlert!('Заметка успешно добавлена :)', 'success')
             } else {
-                showAlert('Введите название заметки!')
+                showAlert!('Введите название заметки!', 'warrning')
             }
 
             setValue('')
         }
     }
 
-    const handlerOnChange = (e) => {
-        setValue(e.target.value)
+    const handlerOnChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue(event.target.value)
     }
 
     return (

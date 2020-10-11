@@ -5,7 +5,7 @@ import { TodoList } from './components/TodoList';
 import { TodoState } from './contexts/todo/TodoState'
 import { Form } from './components/Form';
 
-function App() {
+const App: React.FC = () => {
 
   return (
     <AlertState>
